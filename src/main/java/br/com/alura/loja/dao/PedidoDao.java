@@ -29,13 +29,13 @@ public class PedidoDao {
 	public List<RelatorioDeVendasVo> relatorioDeVendas() {
 		String jpql = "SELECT new br.com.alura.loja.vo.RelatorioDeVendasVo("
 				+ "produto.nome, "
-				+ "SUM(item.quantidade), "
+				+ "SUM(item.quantidade) as quantidadeTotal, "
 				+ "MAX(pedido.data)) "
 				+ "FROM Pedido pedido "
 				+ "JOIN pedido.itens item "
 				+ "JOIN item.produto produto "
 				+ "GROUP BY produto.nome "
-				+ "ORDER BY item.quantidade DESC";
+				+ "ORDER BY quantidadeTotal DESC";
 		return em.createQuery(jpql, RelatorioDeVendasVo.class).getResultList();
 	}
 }
