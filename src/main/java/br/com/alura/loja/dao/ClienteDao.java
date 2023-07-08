@@ -1,9 +1,8 @@
 package br.com.alura.loja.dao;
 
-import br.com.alura.loja.modelo.Cliente;
-import br.com.alura.loja.modelo.Pedido;
-
 import javax.persistence.EntityManager;
+
+import br.com.alura.loja.modelo.Cliente;
 
 public class ClienteDao {
 
@@ -16,7 +15,7 @@ public class ClienteDao {
 	public void cadastrar(Cliente cliente) {
 		this.em.persist(cliente);
 	}
-
+	
 	public Cliente buscarPorId(Long id) {
 		return em.find(Cliente.class, id);
 	}

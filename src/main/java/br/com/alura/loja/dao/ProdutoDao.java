@@ -45,7 +45,7 @@ public class ProdutoDao {
 	}
 	
 	public List<Produto> buscarPorNomeDaCategoria(String nome) {
-			return em.createNamedQuery("Produto.produtosPorCategoria", Produto.class)
+		return em.createNamedQuery("Produto.produtosPorCategoria", Produto.class)
 				.setParameter("nome", nome)
 				.getResultList();
 	}
